@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %} Better Indeed</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <nav class="p-6 bg-blue-200 flex justify-between items-center">
+        <h1 class="text-3xl">Better Indeed</h1>
+        <form method="POST">
+            <input type="text" class="p-1" placeholder="Job title or company" />
+            <input type="text" class="p-1" placeholder="Where" />
+            <button class="rounded-md p-1 bg-blue-500 text-white hover:bg-blue-700">Find Job</button>
+        </form>
+        {% if user.is_authenticated %}
+        <div>
+            <a class="rounded-md p-1 bg-gray-500 text-white hover:bg-blue-700" href="#">Profile</a>
+            <a class="rounded-md p-1 bg-gray-500 text-white hover:bg-blue-700" href="#">Logout</a>
+        </div>
+        {% else %}
+        <div>
+            <a class="rounded-md p-1 bg-gray-500 text-white hover:bg-blue-700" href="#">Login</a>
+        </div>
+        {% endif %}
+    </nav>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,38 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Home |
+{% endblock %}
+
+{% block content %}
+<main class="p-6 flex justify-between gap-5">
+    <aside class="w-1/2">
+        {% for job in job_list %}
+        <div class="p-2 rounded-md bg-gray-100 mb-2">
+            <h3 class="text-xl font-semibold">{{job.title}}</h3>
+            <a href="#">{{job.company}}</a>
+            <small>{{job.location}}</small><br/>
+            <span class="bg-green-200 text-green-900 px-1">{{job.type}}</span>
+            <p class="my-2 text-gray-500">{{job.description|truncatechars:255}}</p>
+            <small>Posted on: {{job.created_at}}</small>
+        </div>
+        {% endfor %}
+    </aside>
+    <div class="bg-gray-100 w-1/2 rounded-md p-2">
+        <div>
+            <img src="#" />
+            <img src="#" />
+        </div>
+        <h2 class="text-2xl font-semibold">{{job.title}}</h2>
+        <a href="#">{{job.company}}</a><br />
+        <small class="text-gray-800">{{job.location}}</small>
+        <p>{{job.type}}</p>
+
+        <button class="rounded-md my-2 p-1 px-4 bg-blue-500 text-white hover:bg-blue-700">Apply</button>
+        <hr class="h-1 bg-blue-200" />
+        <h2 class="text-2xl">Job Details</h2>
+        <p class="my-2 text-gray-500">{{job.description}}</p>
+        <small>Posted on: {{job.created_at}}</small>
+    </div>
+</main>
+{% endblock %}
