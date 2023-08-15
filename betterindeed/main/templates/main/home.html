@@ -8,14 +8,18 @@ Home |
 <main class="p-6 flex justify-between gap-5">
     <aside class="w-1/2">
         {% for job in job_list %}
-        <div class="p-2 rounded-md bg-gray-100 mb-2">
-            <h3 class="text-xl font-semibold">{{job.title}}</h3>
-            <a href="#">{{job.company}}</a>
-            <small>{{job.location}}</small><br/>
-            <span class="bg-green-200 text-green-900 px-1">{{job.type}}</span>
-            <p class="my-2 text-gray-500">{{job.description|truncatechars:255}}</p>
-            <small>Posted on: {{job.created_at}}</small>
-        </div>
+        <ul class="p-2 rounded-md border-2 border-gray-300 bg-gray-100 mb-2">
+            <li>
+                <a href="{% url 'main:home' job.id %}">
+                    <h3 class="text-xl font-semibold">{{job.title}}</h3>
+                    <small href="#">{{job.company}}</small><br/>
+                    <small>{{job.location}}</small><br/>
+                    <span class="bg-green-200 text-green-900 px-1">{{job.type}}</span>
+                    <p class="my-2 text-gray-500">{{job.description|truncatechars:255}}</p>
+                    <small>Posted on: {{job.created_at}}</small>
+                </a>
+            </li>
+        </ul>
         {% endfor %}
     </aside>
     <div class="bg-gray-100 w-1/2 rounded-md p-2">
