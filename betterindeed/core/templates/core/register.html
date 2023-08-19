@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+{% block title %}
+Register
+{% endblock %}
+
+{% block content %}
+
+<form method="post" class="border-2 border-blue-200 p-6">
+    {% csrf_token %}
+    {{form.username}}
+    {% for error in form.username.errors %}
+        <small class="text-red-600">{{ field.label }}: {{ error }}</small>
+    {% endfor %}
+    {{form.email}}
+    {% for error in form.email.errors %}
+        <small class="text-red-600">{{ field.label }}: {{ error }}</small>
+    {% endfor %}
+    {{form.first_name}}
+    {% for error in form.first_name.errors %}
+        <small class="text-red-600">{{ field.label }}: {{ error }}</small>
+    {% endfor %}
+    {{form.last_name}}
+    {% for error in form.last_name.errors %}
+        <small class="text-red-600">{{ field.label }}: {{ error }}</small>
+    {% endfor %}
+    {{form.password1}}
+    {% for error in form.password1.errors %}
+        <small class="text-red-600">{{ field.label }}: {{ error }}</small>
+    {% endfor %}
+    {{form.password2}}
+    {% for error in form.password2.errors %}
+        <small class="text-red-600">{{ field.label }}: {{ error }}</small>
+    {% endfor %}
+    <button type="submit" class="rounded-md p-1 bg-blue-500 text-white hover:bg-blue-700">Submit</button>
+</form>
+{% endblock %}

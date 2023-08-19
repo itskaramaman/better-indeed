@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+
+<form method="post" class="flex justify-center items-center h-48">
+    {% csrf_token %}
+    <div class="border-2 border-blue-200 p-2 rounded-md w-1/2">
+        <h1 class="text-3xl mb-2">Login</h1>
+        <p class="text-red-600">{{message}}</p>
+        <input type="text" placeholder="Username" name="username" class="p-1 mb-2 w-full bg-blue-100 rounded-md" /><br />
+        <input type="password" placeholder="Password" name="password" class="p-1 mb-2 w-full bg-blue-100 rounded-md" /><br />
+        <div class="flex justify-between items-center">
+            <button type="submit" class="rounded-md p-1 bg-blue-500 text-white hover:bg-blue-700">Submit</button>
+            <small>Need an account? Register <a href="{% url 'core:register' %}" class="text-blue-500">here</a></small>
+        </div>
+    </div>
+</form>
+{% endblock %}

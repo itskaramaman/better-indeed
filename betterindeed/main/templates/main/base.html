@@ -8,7 +8,7 @@
 </head>
 <body>
     <nav class="p-6 bg-blue-200 flex justify-between items-center">
-        <h1 class="text-3xl">Better Indeed</h1>
+        <a href="{% url 'main:home' %}" class="text-3xl">Better Indeed</a>
         <form method="POST">
             <input type="text" class="p-1" placeholder="Job title or company" />
             <input type="text" class="p-1" placeholder="Where" />
@@ -17,15 +17,17 @@
         {% if user.is_authenticated %}
         <div>
             <a class="rounded-md p-1 bg-gray-500 text-white hover:bg-blue-700" href="#">Profile</a>
-            <a class="rounded-md p-1 bg-gray-500 text-white hover:bg-blue-700" href="#">Logout</a>
+            <a class="rounded-md p-1 bg-gray-500 text-white hover:bg-blue-700" href="{% url 'core:logout' %}">Logout</a>
         </div>
         {% else %}
         <div>
-            <a class="rounded-md p-1 bg-gray-500 text-white hover:bg-blue-700" href="#">Login</a>
+            <a class="rounded-md p-1 bg-gray-500 text-white hover:bg-blue-700" href="{% url 'core:login' %}">Login</a>
         </div>
         {% endif %}
     </nav>
-    {% block content %}
-    {% endblock %}
+    <div class="p-6">
+        {% block content %}
+        {% endblock %}
+    </div>
 </body>
 </html>

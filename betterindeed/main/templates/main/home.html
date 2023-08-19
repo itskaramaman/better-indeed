@@ -5,7 +5,7 @@ Home |
 {% endblock %}
 
 {% block content %}
-<main class="p-6 flex justify-between gap-5">
+<main class="flex justify-between gap-5">
     <aside class="w-1/2">
         {% for job in job_list %}
         <ul class="p-2 rounded-md border-2 border-gray-300 bg-gray-100 mb-2">
@@ -35,7 +35,7 @@ Home |
         <p>{{job.type}}</p>
 
         <button class="rounded-md my-2 p-1 px-4 bg-blue-500 text-white hover:bg-blue-700">Apply</button>
-        <hr class="h-1 bg-blue-200" />
+        <hr class="h-1 bg-blue-200 my-2" />
         <h2 class="text-2xl">Job Details</h2>
         <p class="my-2 text-gray-500">{{job.description}}</p>
         <small>Posted on: {{job.created_at}}</small>
