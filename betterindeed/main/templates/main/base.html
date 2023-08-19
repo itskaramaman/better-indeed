@@ -16,7 +16,7 @@
         </form>
         {% if user.is_authenticated %}
         <div>
-            <a class="rounded-md p-1 bg-gray-500 text-white hover:bg-blue-700" href="#">Profile</a>
+            <a class="rounded-md p-1 bg-gray-500 text-white hover:bg-blue-700" href="{% url 'core:profile' %}">Profile</a>
             <a class="rounded-md p-1 bg-gray-500 text-white hover:bg-blue-700" href="{% url 'core:logout' %}">Logout</a>
         </div>
         {% else %}
